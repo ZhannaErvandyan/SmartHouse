@@ -33,34 +33,35 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (currentStation == 9) {
-            currentStation = 0;
-        } else {
-            currentStation = currentStation + 1;
+        if (currentStation != 9) {
+            currentStation++;
+            return;
         }
+        currentStation = 0;
+
     }
 
     public void prevStation() {
-        if (currentStation == 0) {
-            currentStation = 9;
+        if (currentStation != 0) {
+            currentStation--;
         } else {
-            currentStation = currentStation - 1;
+            currentStation = 9;
         }
     }
 
     public void increaseVolume() {
-        if (currentVolume >= 100) {
-            currentVolume = 100;
+        if (currentVolume != 100) {
+            currentVolume++;
         } else {
-            currentVolume = currentVolume + 1;
+            currentVolume = 0;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume == 0) {
-            currentVolume = 0;
+        if (currentVolume != 0) {
+            currentVolume--;
         } else {
-            currentVolume = currentVolume - 1;
+            currentVolume = 0;
         }
 
     }

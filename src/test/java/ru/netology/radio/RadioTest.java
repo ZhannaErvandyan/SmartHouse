@@ -30,7 +30,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetCurrentNonExistentMaxRadio() {
+    public void shouldSetCurrentNonExistentMaxStation() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(11);
@@ -41,7 +41,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetCurrentNonExistentMinRadio() {
+    public void shouldSetCurrentNonExistentMinStation() {
         Radio radio = new Radio();
 
         radio.setCurrentStation(-1);
@@ -121,6 +121,30 @@ public class RadioTest {
     }
 
     @Test
+    public void nextMaxStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(9);
+        radio.nextStation();
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevMinStation() {
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(0);
+        radio.prevStation();
+
+        int actual = radio.getCurrentStation();
+        int expected = 9;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void increaseMaxVolume() {
         Radio radio = new Radio();
 
@@ -144,6 +168,7 @@ public class RadioTest {
 
     }
 
+
     @Test
     public void decreaseMaхVolume() {
         Radio radio = new Radio();
@@ -153,6 +178,30 @@ public class RadioTest {
 
         int actual = radio.getCurrentVolume();
         int expected = 99;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void decreaseMinVolume() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(0);
+        radio.decreaseVolume();
+
+        int actual = radio.getCurrentVolume();
+        int expected = 0;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void resetVolume() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(100);
+        radio.increaseVolume();
+
+        int actual = radio.getCurrentVolume();
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
 
