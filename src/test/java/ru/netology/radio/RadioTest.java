@@ -201,10 +201,9 @@ public class RadioTest {
         radio.maxVolume();
 
         int actual = radio.getCurrentVolume();
-        int expected = 0;
+        int expected = 100;
         Assertions.assertEquals(expected, actual);
     }
-    
 
 
 }
